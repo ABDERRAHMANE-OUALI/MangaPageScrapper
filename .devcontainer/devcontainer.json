@@ -1,15 +1,12 @@
+// For format details, see https://aka.ms/vscode-remote/devcontainer.json or this file's README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.134.0/containers/python-3
 {
 	"name": "Python 3",
 	"build": {
 		"dockerfile": "Dockerfile",
 		"context": "..",
-		"args": { 
-			// Update 'VARIANT' to pick a Python version: 3, 3.6, 3.7, 3.8, 3.9
-			"VARIANT": "3.9",
-			// Options
-			"INSTALL_NODE": "false",
-			"NODE_VERSION": "lts/*"
-		}
+		// Update 'VARIANT' to pick a Python version: 3, 3.6, 3.7, 3.8 
+		"args": { "VARIANT": "3" }
 	},
 
 	// Set *default* container specific settings.json values on container create.
@@ -31,17 +28,15 @@
 
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
-		"ms-python.python",
-		"kiteco.kite"
-	]
+		"ms-python.python"
+	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
+	// "forwardPorts": [9000],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "pip3 install --user -r requirements.txt",
+	"postCreateCommand": "pip3 install -r requirements.txt",
 
-	// Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
-	// "remoteUser": "vscode"
-
+	// Comment out to connect as root instead.
+	"remoteUser": "vscode"
 }
